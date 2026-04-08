@@ -4,11 +4,8 @@
   --surface-2: #ede7f6;
   --text: #2b2a33;
   --muted: #6e6a78;
-  --accent: #ff7fb5;
-  --accent-2: #7fd7ff;
   --border: rgba(60, 45, 80, 0.12);
   --shadow: 0 14px 40px rgba(35, 20, 55, 0.12);
-  --shadow-soft: 0 10px 26px rgba(35, 20, 55, 0.08);
 }
 
 * {
@@ -61,32 +58,6 @@ body {
   font-size: clamp(2.4rem, 5vw, 3.2rem);
   font-weight: 400;
   line-height: 1.1;
-}
-
-.hero p {
-  color: var(--muted);
-  max-width: 60ch;
-  margin: 0.6rem 0 1.1rem;
-  text-align: center;
-}
-
-.button {
-  display: inline-block;
-  text-decoration: none;
-  color: #2b2a33;
-  background: linear-gradient(135deg, rgba(255, 127, 181, 0.9), rgba(127, 215, 255, 0.9));
-  padding: 0.75rem 1.05rem;
-  border-radius: 999px;
-  font-weight: 700;
-  border: 1px solid rgba(60, 45, 80, 0.12);
-  box-shadow: var(--shadow-soft);
-  transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
-}
-
-.button:hover {
-  transform: translateY(-1px);
-  filter: saturate(1.05);
-  box-shadow: var(--shadow);
 }
 
 .toolbar {
@@ -156,12 +127,6 @@ body {
   font-family: "Gowun Dodum", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-weight: 500;
   text-align: center;
-}
-
-.card-body p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
 }
 
 .footer {
