@@ -168,7 +168,7 @@ body {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(25, 20, 35, 0.72);
+  background: rgba(20, 20, 20, 0.85);
   backdrop-filter: blur(8px);
   display: grid;
   place-items: center;
