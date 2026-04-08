@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Image portfolio gallery">
+  <title>My Image Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>My Image Portfolio</h1>
+      <p>Showcasing selected work in one clean, responsive gallery.</p>
+      <a class="button" href="#gallery">View Gallery</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="toolbar" aria-label="Gallery filters">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="nature">Nature</button>
+      <button class="chip" data-filter="urban">Urban</button>
+      <button class="chip" data-filter="people">People</button>
+    </section>
+
+    <section id="gallery" class="gallery" aria-label="Portfolio images">
+      <article class="card" data-category="nature">
+        <img src="https://picsum.photos/id/1018/900/700" alt="Misty mountain range at sunrise" loading="lazy">
+        <div class="card-body">
+          <h2>Morning Ridge</h2>
+          <p>Nature</p>
+        </div>
+      </article>
+
+      <article class="card" data-category="urban">
+        <img src="https://picsum.photos/id/1011/900/700" alt="City skyline at blue hour" loading="lazy">
+        <div class="card-body">
+          <h2>Blue Hour Skyline</h2>
+          <p>Urban</p>
+        </div>
+      </article>
+
+      <article class="card" data-category="people">
+        <img src="https://picsum.photos/id/1005/900/700" alt="Portrait of a person in natural light" loading="lazy">
+        <div class="card-body">
+          <h2>Window Light</h2>
+          <p>People</p>
+        </div>
+      </article>
+
+      <article class="card" data-category="nature">
+        <img src="https://picsum.photos/id/1040/900/700" alt="Forest trail with soft sunlight" loading="lazy">
+        <div class="card-body">
+          <h2>Quiet Trail</h2>
+          <p>Nature</p>
+        </div>
+      </article>
+
+      <article class="card" data-category="urban">
+        <img src="https://picsum.photos/id/1031/900/700" alt="Street crossing with motion blur" loading="lazy">
+        <div class="card-body">
+          <h2>Crosswalk Motion</h2>
+          <p>Urban</p>
+        </div>
+      </article>
+
+      <article class="card" data-category="people">
+        <img src="https://picsum.photos/id/1027/900/700" alt="Person walking along a shoreline" loading="lazy">
+        <div class="card-body">
+          <h2>Shoreline Walk</h2>
+          <p>People</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="closeLightbox" class="lightbox-close" aria-label="Close preview">X</button>
+    <img id="lightboxImage" alt="">
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> My Image Portfolio</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
