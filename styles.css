@@ -1,7 +1,7 @@
 :root {
-  --bg: #fff7fb;
-  --surface: #ffffff;
-  --surface-2: #fff0f6;
+  --bg: #e7e9f0;
+  --surface: #f7f5fb;
+  --surface-2: #ede7f6;
   --text: #2b2a33;
   --muted: #6e6a78;
   --accent: #ff7fb5;
@@ -23,7 +23,9 @@ body {
 
 body {
   font-family: "Gowun Dodum", system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #fff7fb 0%, #fff 55%, #f6fbff 100%);
+  background: radial-gradient(circle at top left, #e3ddeff0 0, transparent 55%),
+    radial-gradient(circle at bottom right, #dde6f5 0, transparent 55%),
+    linear-gradient(180deg, #e7e9f0 0%, #e3e6f3 50%, #dde1f0 100%);
   color: var(--text);
   line-height: 1.6;
 }
@@ -36,9 +38,9 @@ body {
 .hero {
   padding: 5rem 0 3.25rem;
   background:
-    radial-gradient(circle at 12% 10%, rgba(255, 127, 181, 0.25) 0, rgba(255, 127, 181, 0) 55%),
-    radial-gradient(circle at 85% 5%, rgba(127, 215, 255, 0.28) 0, rgba(127, 215, 255, 0) 52%),
-    radial-gradient(circle at 60% 80%, rgba(140, 255, 210, 0.22) 0, rgba(140, 255, 210, 0) 55%);
+    radial-gradient(circle at 12% 10%, rgba(255, 172, 203, 0.18) 0, rgba(255, 172, 203, 0) 55%),
+    radial-gradient(circle at 85% 5%, rgba(160, 205, 255, 0.22) 0, rgba(160, 205, 255, 0) 52%),
+    radial-gradient(circle at 60% 80%, rgba(186, 220, 255, 0.2) 0, rgba(186, 220, 255, 0) 55%);
   border-bottom: 1px solid var(--border);
 }
 
@@ -47,6 +49,14 @@ body {
   font-size: clamp(2rem, 4vw, 3rem);
   font-family: "Jua", "Gowun Dodum", system-ui, sans-serif;
   letter-spacing: 0.2px;
+}
+
+.hero-name {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  font-weight: 400;
+  margin-right: 0.25rem;
+  letter-spacing: 0.04em;
 }
 
 .hero p {
