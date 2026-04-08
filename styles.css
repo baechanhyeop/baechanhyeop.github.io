@@ -33,16 +33,13 @@ body {
 }
 
 .hero {
-  padding: 5rem 0 3.25rem;
+  padding: 5rem 1rem 3.25rem;
+  text-align: center;
   background:
     radial-gradient(circle at 12% 10%, rgba(255, 172, 203, 0.18) 0, rgba(255, 172, 203, 0) 55%),
     radial-gradient(circle at 85% 5%, rgba(160, 205, 255, 0.22) 0, rgba(160, 205, 255, 0) 52%),
     radial-gradient(circle at 60% 80%, rgba(186, 220, 255, 0.2) 0, rgba(186, 220, 255, 0) 55%);
   border-bottom: 1px solid var(--border);
-}
-
-.hero .container {
-  text-align: center;
 }
 
 .hero h1 {
