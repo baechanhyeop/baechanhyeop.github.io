@@ -10,15 +10,64 @@ const yearEl = document.getElementById("year");
 yearEl.textContent = new Date().getFullYear();
 
 const LIGHTBOX_ANIM_MS = 260;
-const FILTER_TRANSITION_MS = 800;
-const FILTER_STAGGER_MS = 45;
 let lightboxCloseTimer = null;
-const filterHideTimers = new WeakMap();
 
-cards.forEach((card) => {
-  card.classList.remove("filter-hidden");
-  card.style.setProperty("--delay", "0s");
-});
+const FILTER_MOVE_MS = 520;
+const FILTER_FADE_MS = 360;
+
+function animateFilter(filter) {
+  const allCards = Array.from(cards);
+  const currentlyVisible = allCards.filter((card) => card.style.display !== "none");
+  const firstRects = new Map(
+    currentlyVisible.map((card) => [card, card.getBoundingClientRect()])
+  );
+
+  allCards.forEach((card) => {
+    const match = filter === "all" || card.dataset.category === filter;
+    card.style.display = match ? "block" : "none";
+  });
+
+  const nextVisible = allCards.filter((card) => card.style.display !== "none");
+  const nextVisibleSet = new Set(nextVisible);
+  const previousVisibleSet = new Set(currentlyVisible);
+
+  nextVisible.forEach((card, index) => {
+    if (!previousVisibleSet.has(card)) {
+      card.animate(
+        [
+          { opacity: 0, transform: "translateY(14px) scale(0.98)" },
+          { opacity: 1, transform: "translateY(0) scale(1)" },
+        ],
+        {
+          duration: FILTER_FADE_MS,
+          delay: Math.min(index * 25, 180),
+          easing: "ease",
+          fill: "both",
+        }
+      );
+      return;
+    }
+
+    const first = firstRects.get(card);
+    const last = card.getBoundingClientRect();
+    const dx = first.left - last.left;
+    const dy = first.top - last.top;
+
+    if (dx !== 0 || dy !== 0) {
+      card.animate(
+        [
+          { transform: `translate(${dx}px, ${dy}px)` },
+          { transform: "translate(0, 0)" },
+        ],
+        {
+          duration: FILTER_MOVE_MS,
+          easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+          fill: "both",
+        }
+      );
+    }
+  });
+}
 
 chips.forEach((chip) => {
   chip.addEventListener("click", () => {
@@ -26,29 +75,7 @@ chips.forEach((chip) => {
     chip.classList.add("active");
 
     const filter = chip.dataset.filter;
-    let visibleIndex = 0;
-
-    cards.forEach((card) => {
-      const existingTimer = filterHideTimers.get(card);
-      if (existingTimer) clearTimeout(existingTimer);
-
-      const match = filter === "all" || card.dataset.category === filter;
-      if (match) {
-        card.style.display = "block";
-        card.style.setProperty("--delay", `${visibleIndex * FILTER_STAGGER_MS}ms`);
-        card.classList.remove("filter-hidden");
-        visibleIndex += 1;
-      } else {
-        card.style.setProperty("--delay", "0s");
-        card.classList.add("filter-hidden");
-        const hideTimer = setTimeout(() => {
-          if (card.classList.contains("filter-hidden")) {
-            card.style.display = "none";
-          }
-        }, FILTER_TRANSITION_MS);
-        filterHideTimers.set(card, hideTimer);
-      }
-    });
+    animateFilter(filter);
   });
 });
 
