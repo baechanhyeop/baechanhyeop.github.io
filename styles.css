@@ -102,21 +102,11 @@ body {
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(35, 20, 55, 0.06);
   transition: transform 150ms ease, box-shadow 150ms ease;
-  opacity: 1;
 }
 
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow);
-}
-
-.card.is-showing {
-  animation: cardSlideIn 360ms ease forwards;
-}
-
-.card.is-hiding {
-  animation: cardSlideOut 260ms ease forwards;
-  pointer-events: none;
 }
 
 .card img {
@@ -238,28 +228,6 @@ body {
 @media (max-width: 500px) {
   .hero {
     padding-top: 3.5rem;
-  }
-}
-
-@keyframes cardSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes cardSlideOut {
-  from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(8px) scale(0.985);
   }
 }
 
