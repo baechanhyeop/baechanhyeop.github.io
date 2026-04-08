@@ -47,17 +47,21 @@ body {
 .hero h1 {
   margin: 0;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-family: "Jua", "Gowun Dodum", system-ui, sans-serif;
-  letter-spacing: 0.2px;
+  font-family: inherit; /* keep font mostly controlled by .hero-name */
+  letter-spacing: 0;
+  text-align: center;
 }
 
 .hero-name {
   font-family: "Great Vibes", cursive !important;
   font-size: clamp(2.4rem, 5vw, 3.2rem);
   font-weight: 400;
-  margin-right: 0.25rem;
-  letter-spacing: 0;
   line-height: 1;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(60, 45, 80, 0.12);
+  padding: 0.25rem 0.95rem 0.35rem;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(35, 20, 55, 0.06);
 }
 
 .hero p {
