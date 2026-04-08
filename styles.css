@@ -52,11 +52,12 @@ body {
 }
 
 .hero-name {
-  font-family: "Great Vibes", cursive;
+  font-family: "Great Vibes", cursive !important;
   font-size: clamp(2.4rem, 5vw, 3.2rem);
   font-weight: 400;
   margin-right: 0.25rem;
-  letter-spacing: 0.04em;
+  letter-spacing: 0;
+  line-height: 1;
 }
 
 .hero p {
