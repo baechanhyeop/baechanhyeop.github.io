@@ -101,24 +101,12 @@ body {
   border-radius: 1.15rem;
   overflow: hidden;
   box-shadow: 0 10px 24px rgba(35, 20, 55, 0.06);
-  transition:
-    transform 0.8s ease,
-    opacity 0.8s ease,
-    box-shadow 150ms ease;
-  transition-delay: var(--delay, 0s);
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow);
-}
-
-.card.filter-hidden {
-  opacity: 0;
-  transform: translateY(14px) scale(0.985);
-  pointer-events: none;
 }
 
 .card img {
