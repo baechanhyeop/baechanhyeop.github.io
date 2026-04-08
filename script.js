@@ -10,7 +10,15 @@ const yearEl = document.getElementById("year");
 yearEl.textContent = new Date().getFullYear();
 
 const LIGHTBOX_ANIM_MS = 260;
+const FILTER_TRANSITION_MS = 800;
+const FILTER_STAGGER_MS = 45;
 let lightboxCloseTimer = null;
+const filterHideTimers = new WeakMap();
+
+cards.forEach((card) => {
+  card.classList.remove("filter-hidden");
+  card.style.setProperty("--delay", "0s");
+});
 
 chips.forEach((chip) => {
   chip.addEventListener("click", () => {
@@ -18,9 +26,28 @@ chips.forEach((chip) => {
     chip.classList.add("active");
 
     const filter = chip.dataset.filter;
+    let visibleIndex = 0;
+
     cards.forEach((card) => {
+      const existingTimer = filterHideTimers.get(card);
+      if (existingTimer) clearTimeout(existingTimer);
+
       const match = filter === "all" || card.dataset.category === filter;
-      card.style.display = match ? "block" : "none";
+      if (match) {
+        card.style.display = "block";
+        card.style.setProperty("--delay", `${visibleIndex * FILTER_STAGGER_MS}ms`);
+        card.classList.remove("filter-hidden");
+        visibleIndex += 1;
+      } else {
+        card.style.setProperty("--delay", "0s");
+        card.classList.add("filter-hidden");
+        const hideTimer = setTimeout(() => {
+          if (card.classList.contains("filter-hidden")) {
+            card.style.display = "none";
+          }
+        }, FILTER_TRANSITION_MS);
+        filterHideTimers.set(card, hideTimer);
+      }
     });
   });
 });
