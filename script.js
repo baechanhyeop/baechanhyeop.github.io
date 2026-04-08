@@ -9,29 +9,8 @@ const yearEl = document.getElementById("year");
 
 yearEl.textContent = new Date().getFullYear();
 
-const FADE_MS = 220;
-const hideTimers = new WeakMap();
-
-function showCard(card) {
-  const existing = hideTimers.get(card);
-  if (existing) clearTimeout(existing);
-
-  card.style.display = "block";
-  card.style.opacity = "0";
-
-  requestAnimationFrame(() => {
-    card.style.opacity = "1";
-  });
-}
-
-function hideCard(card) {
-  card.style.opacity = "0";
-
-  const t = setTimeout(() => {
-    card.style.display = "none";
-  }, FADE_MS);
-  hideTimers.set(card, t);
-}
+const LIGHTBOX_ANIM_MS = 260;
+let lightboxCloseTimer = null;
 
 chips.forEach((chip) => {
   chip.addEventListener("click", () => {
@@ -41,8 +20,7 @@ chips.forEach((chip) => {
     const filter = chip.dataset.filter;
     cards.forEach((card) => {
       const match = filter === "all" || card.dataset.category === filter;
-      if (match) showCard(card);
-      else hideCard(card);
+      card.style.display = match ? "block" : "none";
     });
   });
 });
@@ -62,14 +40,24 @@ cards.forEach((card) => {
     lightboxCaption.hidden = !title;
     lightboxSubtext.hidden = !subtext;
 
+    if (lightboxCloseTimer) {
+      clearTimeout(lightboxCloseTimer);
+      lightboxCloseTimer = null;
+    }
+    lightbox.classList.remove("closing");
     lightbox.classList.add("open");
     lightbox.setAttribute("aria-hidden", "false");
   });
 });
 
 function hideLightbox() {
+  if (!lightbox.classList.contains("open")) return;
   lightbox.classList.remove("open");
-  lightbox.setAttribute("aria-hidden", "true");
+  lightbox.classList.add("closing");
+  lightboxCloseTimer = setTimeout(() => {
+    lightbox.classList.remove("closing");
+    lightbox.setAttribute("aria-hidden", "true");
+  }, LIGHTBOX_ANIM_MS);
 }
 
 closeLightbox.addEventListener("click", hideLightbox);
