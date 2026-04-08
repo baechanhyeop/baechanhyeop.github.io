@@ -1,52 +1,208 @@
-const chips = document.querySelectorAll(".chip");
-const cards = document.querySelectorAll(".card");
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const lightboxCaption = document.getElementById("lightboxCaption");
-const closeLightbox = document.getElementById("closeLightbox");
-const yearEl = document.getElementById("year");
-
-yearEl.textContent = new Date().getFullYear();
-
-chips.forEach((chip) => {
-  chip.addEventListener("click", () => {
-    chips.forEach((c) => c.classList.remove("active"));
-    chip.classList.add("active");
-
-    const filter = chip.dataset.filter;
-    cards.forEach((card) => {
-      const match = filter === "all" || card.dataset.category === filter;
-      card.style.display = match ? "block" : "none";
-    });
-  });
-});
-
-cards.forEach((card) => {
-  const image = card.querySelector("img");
-  image.addEventListener("click", () => {
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
-    lightboxCaption.textContent = card.querySelector("h2").textContent;
-    lightbox.classList.add("open");
-    lightbox.setAttribute("aria-hidden", "false");
-  });
-});
-
-function hideLightbox() {
-  lightbox.classList.remove("open");
-  lightbox.setAttribute("aria-hidden", "true");
+:root {
+  --bg: #fff7fb;
+  --surface: #ffffff;
+  --surface-2: #fff0f6;
+  --text: #2b2a33;
+  --muted: #6e6a78;
+  --accent: #ff7fb5;
+  --accent-2: #7fd7ff;
+  --border: rgba(60, 45, 80, 0.12);
+  --shadow: 0 14px 40px rgba(35, 20, 55, 0.12);
+  --shadow-soft: 0 10px 26px rgba(35, 20, 55, 0.08);
 }
 
-closeLightbox.addEventListener("click", hideLightbox);
+* {
+  box-sizing: border-box;
+}
 
-lightbox.addEventListener("click", (event) => {
-  if (event.target === lightbox) {
-    hideLightbox();
-  }
-});
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && lightbox.classList.contains("open")) {
-    hideLightbox();
+body {
+  font-family: "Gowun Dodum", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #fff7fb 0%, #fff 55%, #f6fbff 100%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 5rem 0 3.25rem;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(255, 127, 181, 0.25) 0, rgba(255, 127, 181, 0) 55%),
+    radial-gradient(circle at 85% 5%, rgba(127, 215, 255, 0.28) 0, rgba(127, 215, 255, 0) 52%),
+    radial-gradient(circle at 60% 80%, rgba(140, 255, 210, 0.22) 0, rgba(140, 255, 210, 0) 55%);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: "Jua", "Gowun Dodum", system-ui, sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 60ch;
+  margin: 0.6rem 0 1.1rem;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  color: #2b2a33;
+  background: linear-gradient(135deg, rgba(255, 127, 181, 0.9), rgba(127, 215, 255, 0.9));
+  padding: 0.75rem 1.05rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid rgba(60, 45, 80, 0.12);
+  box-shadow: var(--shadow-soft);
+  transition: transform 150ms ease, box-shadow 150ms ease, filter 150ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.05);
+  box-shadow: var(--shadow);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2rem 0 1rem;
+}
+
+.chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 0.5rem 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(35, 20, 55, 0.05);
+  transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
+}
+
+.chip.active,
+.chip:hover {
+  border-color: rgba(255, 127, 181, 0.5);
+  background: var(--surface-2);
+  color: #5c3550;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(35, 20, 55, 0.08);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  padding-bottom: 3rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.15rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(35, 20, 55, 0.06);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+  filter: saturate(1.02) contrast(1.02);
+}
+
+.card-body {
+  padding: 0.75rem 0.9rem 1rem;
+}
+
+.card-body h2 {
+  font-size: 1rem;
+  margin: 0 0 0.2rem;
+  font-family: "Jua", "Gowun Dodum", system-ui, sans-serif;
+}
+
+.card-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 247, 251, 0.85);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 150ms ease, visibility 150ms ease;
+  z-index: 1000;
+}
+
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: min(95vw, 1000px);
+  max-height: 80vh;
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.lightbox p {
+  margin: 0;
+  color: #4c4657;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: 1px solid var(--border);
+  color: #2b2a33;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+  width: 2.25rem;
+  height: 2.25rem;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(35, 20, 55, 0.12);
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding-top: 3.5rem;
   }
-});
+}
