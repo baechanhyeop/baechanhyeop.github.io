@@ -168,7 +168,7 @@ body {
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(255, 247, 251, 0.85);
+  background: rgba(25, 20, 35, 0.72);
   backdrop-filter: blur(8px);
   display: grid;
   place-items: center;
@@ -195,7 +195,7 @@ body {
 
 .lightbox p {
   margin: 0;
-  color: #4c4657;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .lightbox-close {
@@ -203,8 +203,8 @@ body {
   top: 1rem;
   right: 1rem;
   border: 1px solid var(--border);
-  color: #2b2a33;
-  background: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(25, 20, 35, 0.35);
   border-radius: 999px;
   width: 2.25rem;
   height: 2.25rem;
