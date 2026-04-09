@@ -8,6 +8,11 @@
   --shadow: 0 14px 40px rgba(35, 20, 55, 0.12);
   --selection-bg: #ffd6e8;
   --selection-color: #5c3550;
+  --pill-border: rgba(232, 180, 210, 0.85);
+  --pill-border-hover: rgba(210, 165, 220, 0.95);
+  --pill-text: #b89bb0;
+  --pill-text-active: #c9a8c4;
+  --pill-bg-active: rgba(255, 236, 245, 0.9);
 }
 
 * {
@@ -77,12 +82,12 @@ body {
 
 .chip {
   background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text);
+  border: 1.5px solid var(--pill-border);
+  color: var(--pill-text);
   border-radius: 999px;
   padding: 0.5rem 0.95rem;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(35, 20, 55, 0.05);
+  box-shadow: 0 4px 14px rgba(200, 160, 190, 0.12);
   transition:
     transform 120ms ease,
     background 180ms ease,
@@ -93,11 +98,11 @@ body {
 
 .chip.active,
 .chip:hover {
-  border-color: rgba(255, 127, 181, 0.5);
-  background: var(--surface-2);
-  color: #5c3550;
+  border-color: var(--pill-border-hover);
+  background: var(--pill-bg-active);
+  color: var(--pill-text-active);
   transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(35, 20, 55, 0.08);
+  box-shadow: 0 8px 22px rgba(210, 170, 200, 0.18);
 }
 
 .gallery {
