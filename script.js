@@ -15,8 +15,16 @@ let lightboxCloseTimer = null;
 const FILTER_MOVE_MS = 520;
 const FILTER_FADE_MS = 360;
 
+function cancelCardAnimations(card) {
+  for (const anim of card.getAnimations()) {
+    anim.cancel();
+  }
+}
+
 function animateFilter(filter) {
   const allCards = Array.from(cards);
+  allCards.forEach(cancelCardAnimations);
+
   const currentlyVisible = allCards.filter((card) => card.style.display !== "none");
   const firstRects = new Map(
     currentlyVisible.map((card) => [card, card.getBoundingClientRect()])
@@ -42,7 +50,7 @@ function animateFilter(filter) {
           duration: FILTER_FADE_MS,
           delay: Math.min(index * 25, 180),
           easing: "ease",
-          fill: "both",
+          fill: "none",
         }
       );
       return;
@@ -62,7 +70,7 @@ function animateFilter(filter) {
         {
           duration: FILTER_MOVE_MS,
           easing: "cubic-bezier(0.22, 1, 0.36, 1)",
-          fill: "both",
+          fill: "none",
         }
       );
     }
