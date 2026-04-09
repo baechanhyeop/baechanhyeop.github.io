@@ -6,6 +6,8 @@
   --muted: #6e6a78;
   --border: rgba(60, 45, 80, 0.12);
   --shadow: 0 14px 40px rgba(35, 20, 55, 0.12);
+  --selection-bg: #ffd6e8;
+  --selection-color: #5c3550;
 }
 
 * {
@@ -25,6 +27,16 @@ body {
     linear-gradient(180deg, #e7e9f0 0%, #e3e6f3 50%, #dde1f0 100%);
   color: var(--text);
   line-height: 1.6;
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-color);
+}
+
+::-moz-selection {
+  background: var(--selection-bg);
+  color: var(--selection-color);
 }
 
 .container {
