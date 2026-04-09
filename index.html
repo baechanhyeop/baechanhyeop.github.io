@@ -19,8 +19,12 @@
   <main class="container">
     <section class="toolbar" aria-label="Gallery filters">
       <button class="chip active" data-filter="all">전체</button>
+      <button class="chip" data-filter="생일">생일</button>
+      <button class="chip" data-filter="일상">일상</button>
       <button class="chip" data-filter="4계절">4계절</button>
       <button class="chip" data-filter="화이트데이">화이트데이</button>
+      <button class="chip" data-filter="몽환">몽환</button>
+      <button class="chip" data-filter="컨셉">컨셉</button>
       <button class="chip" data-filter="동양풍">동양풍</button>
       <button class="chip" data-filter="올림포스">올림포스</button>
       <button class="chip" data-filter="이집트">이집트</button>
@@ -28,65 +32,233 @@
 
     <section id="gallery" class="gallery" aria-label="Portfolio images">
       <article class="card" data-category="생일" data-lightbox-title="test 테스트" data-lightbox-text="7월 31일">
-        <img src="images/White_Day_1.png" alt="temp" loading="lazy">
+        <img src="images/Routine_BeachFirework.webp" alt="temp" loading="lazy">
         <div class="card-body">
           <h2>생일</h2>
         </div>
       </article>
 
+      <article class="card" data-category="일상" data-lightbox-title="기상상" data-lightbox-text="">
+        <img src="images/Routine_ToothBrush.webp" alt="기상" loading="lazy">
+        <div class="card-body">
+          <h2>기상</h2>
+        </div>
+      </article>
+
       <article class="card" data-category="4계절" data-lightbox-title="봄" data-lightbox-text="">
-        <img src="images/Season_Spring.png" alt="봄" loading="lazy">
+        <img src="images/Season_Spring.webp" alt="봄" loading="lazy">
         <div class="card-body">
           <h2>봄</h2>
         </div>
       </article>
 
       <article class="card" data-category="4계절" data-lightbox-title="여름" data-lightbox-text="">
-        <img src="images/Season_Summer.png" alt="여름" loading="lazy">
+        <img src="images/Season_Summer.webp" alt="여름" loading="lazy">
         <div class="card-body">
           <h2>여름</h2>
         </div>
       </article>
 
       <article class="card" data-category="4계절" data-lightbox-title="가을" data-lightbox-text="">
-        <img src="images/Season_Fall.png" alt="가을" loading="lazy">
+        <img src="images/Season_Fall.webp" alt="가을" loading="lazy">
         <div class="card-body">
           <h2>가을</h2>
         </div>
       </article>
 
       <article class="card" data-category="4계절" data-lightbox-title="겨울" data-lightbox-text="">
-        <img src="images/Season_Winter.png" alt="겨울" loading="lazy">
+        <img src="images/Season_Winter.webp" alt="겨울" loading="lazy">
         <div class="card-body">
           <h2>겨울</h2>
         </div>
       </article>
 
       <article class="card" data-category="화이트데이" data-lightbox-title="화이트데이" data-lightbox-text="">
-        <img src="images/White_Day_1.png" alt="화이트데이 1" loading="lazy">
+        <img src="images/White_Day_1.webp" alt="화이트데이 1" loading="lazy">
         <div class="card-body">
           <h2>화이트데이</h2>
         </div>
       </article>
 
       <article class="card" data-category="화이트데이" data-lightbox-title="화이트데이" data-lightbox-text="">
-        <img src="images/White_Day_2.png" alt="화이트데이 2" loading="lazy">
+        <img src="images/White_Day_2.webp" alt="화이트데이 2" loading="lazy">
         <div class="card-body">
           <h2>화이트데이</h2>
         </div>
       </article>
 
       <article class="card" data-category="화이트데이" data-lightbox-title="화이트데이" data-lightbox-text="">
-        <img src="images/White_Day_3.png" alt="화이트데이 3" loading="lazy">
+        <img src="images/White_Day_3.webp" alt="화이트데이 3" loading="lazy">
         <div class="card-body">
           <h2>화이트데이</h2>
         </div>
       </article>
 
       <article class="card" data-category="화이트데이" data-lightbox-title="화이트데이" data-lightbox-text="">
-        <img src="images/White_Day_4.png" alt="화이트데이 4" loading="lazy">
+        <img src="images/White_Day_4.webp" alt="화이트데이 4" loading="lazy">
         <div class="card-body">
           <h2>화이트데이</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="몽환" data-lightbox-title="Angel" data-lightbox-text="">
+        <img src="images/Fantasy_Angel.webp" alt="Angel" loading="lazy">
+        <div class="card-body">
+          <h2>Angel</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="몽환" data-lightbox-title="Fallen Angel" data-lightbox-text="">
+        <img src="images/Fantasy_FallenAngel.webp" alt="FallenAngel" loading="lazy">
+        <div class="card-body">
+          <h2>Fallen Angel</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="몽환" data-lightbox-title="나비 정원" data-lightbox-text="">
+        <img src="images/Fantasy_BlueGarden.webp" alt="나비 정원" loading="lazy">
+        <div class="card-body">
+          <h2>나비 정원</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="몽환" data-lightbox-title="은하수" data-lightbox-text="">
+        <img src="images/Fantasy_MilkyWay.webp" alt="은하수" loading="lazy">
+        <div class="card-body">
+          <h2>은하수</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="몽환" data-lightbox-title="수중" data-lightbox-text="">
+        <img src="images/Fantasy_Underwater.webp" alt="수중" loading="lazy">
+        <div class="card-body">
+          <h2>수중</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="컨셉" data-lightbox-title="천사" data-lightbox-text="">
+        <img src="images/Concept_Angel.webp" alt="천사" loading="lazy">
+        <div class="card-body">
+          <h2>천사</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="컨셉" data-lightbox-title="풍선" data-lightbox-text="">
+        <img src="images/Concept_Balloon.webp" alt="풍선" loading="lazy">
+        <div class="card-body">
+          <h2>풍선</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="컨셉" data-lightbox-title="담배" data-lightbox-text="">
+        <img src="images/Concept_Cigarette.webp" alt="담배" loading="lazy">
+        <div class="card-body">
+          <h2>담배</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="컨셉" data-lightbox-title="사이버펑크" data-lightbox-text="">
+        <img src="images/Concept_Cyberpunk1.webp" alt="사이버펑크" loading="lazy">
+        <div class="card-body">
+          <h2>사이버펑크</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="컨셉" data-lightbox-title="사이버펑크" data-lightbox-text="">
+        <img src="images/Concept_Cyberpunk2.webp" alt="사이버펑크" loading="lazy">
+        <div class="card-body">
+          <h2>사이버펑크</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="컨셉" data-lightbox-title="멘헤라" data-lightbox-text="">
+        <img src="images/Concept_Menhera.webp" alt="멘헤라" loading="lazy">
+        <div class="card-body">
+          <h2>멘헤라</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="컨셉" data-lightbox-title="제압" data-lightbox-text="">
+        <img src="images/Concept_Pinned.webp" alt="제압" loading="lazy">
+        <div class="card-body">
+          <h2>제압</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="컨셉" data-lightbox-title="물병" data-lightbox-text="">
+        <img src="images/Concept_Water.webp" alt="물병" loading="lazy">
+        <div class="card-body">
+          <h2>물병</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="벚꽃" data-lightbox-text="">
+        <img src="images/Oriental_CherryBlossoms.webp" alt="벚꽃" loading="lazy">
+        <div class="card-body">
+          <h2>벚꽃</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="청죽림" data-lightbox-text="">
+        <img src="images/Oriental_BambooForest.webp" alt="청죽림" loading="lazy">
+        <div class="card-body">
+          <h2>청죽림</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="수국과 소나기" data-lightbox-text="">
+        <img src="images/Oriental_HydrangeaRain.webp" alt="수국과 소나기" loading="lazy">
+        <div class="card-body">
+          <h2>수국과 소나기</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="월하연못" data-lightbox-text="">
+        <img src="images/Oriental_MoonPond1.webp" alt="월하연못" loading="lazy">
+        <div class="card-body">
+          <h2>월하연못</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="월하연못" data-lightbox-text="">
+        <img src="images/Oriental_MoonPond2.webp" alt="월하연못" loading="lazy">
+        <div class="card-body">
+          <h2>월하연못</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="낙화유수" data-lightbox-text="">
+        <img src="images/Oriental_BackPOV1.webp" alt="낙화유수" loading="lazy">
+        <div class="card-body">
+          <h2>낙화유수</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="낙화유수" data-lightbox-text="">
+        <img src="images/Oriental_BackPOV2.webp" alt="낙화유수" loading="lazy">
+        <div class="card-body">
+          <h2>낙화유수</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="검사" data-lightbox-text="">
+        <img src="images/Oriental_Battle.webp" alt="검사" loading="lazy">
+        <div class="card-body">
+          <h2>검사</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="백귀야행" data-lightbox-text="">
+        <img src="images/Oriental_Willowisp.webp" alt="백귀야행" loading="lazy">
+        <div class="card-body">
+          <h2>백귀야행</h2>
+        </div>
+      </article>
+
+      <article class="card" data-category="동양풍" data-lightbox-title="구미호" data-lightbox-text="">
+        <img src="images/Oriental_Guimiho.webp" alt="구미호" loading="lazy">
+        <div class="card-body">
+          <h2>구미호</h2>
         </div>
       </article>
 
@@ -105,21 +277,21 @@
       </article>
 
       <article class="card" data-category="올림포스" data-lightbox-title="아폴론" data-lightbox-text="">
-        <img src="images/Olympus_Apollon.png" alt="아폴론" loading="lazy">
+        <img src="images/Olympus_Apollon.webp" alt="아폴론" loading="lazy">
         <div class="card-body">
           <h2>아폴론</h2>
         </div>
       </article>
 
       <article class="card" data-category="올림포스" data-lightbox-title="아르테미스" data-lightbox-text="">
-        <img src="images/Olympus_Artemis.png" alt="아르테미스" loading="lazy">
+        <img src="images/Olympus_Artemis.webp" alt="아르테미스" loading="lazy">
         <div class="card-body">
           <h2>아르테미스</h2>
         </div>
       </article>
 
       <article class="card" data-category="올림포스" data-lightbox-title="아레스" data-lightbox-text="">
-        <img src="images/Olympus_Ares.png" alt="아레스" loading="lazy">
+        <img src="images/Olympus_Ares.webp" alt="아레스" loading="lazy">
         <div class="card-body">
           <h2>아레스</h2>
         </div>
@@ -133,7 +305,7 @@
       </article>
 
       <article class="card" data-category="올림포스" data-lightbox-title="아프로디테" data-lightbox-text="">
-        <img src="images/Olympus_Aphrodite.png" alt="아프로디테" loading="lazy">
+        <img src="images/Olympus_Aphrodite.webp" alt="아프로디테" loading="lazy">
         <div class="card-body">
           <h2>아프로디테</h2>
         </div>
@@ -147,49 +319,49 @@
       </article>
 
       <article class="card" data-category="올림포스" data-lightbox-title="헤르메스" data-lightbox-text="">
-        <img src="images/Olympus_Hermes.png" alt="헤르메스" loading="lazy">
+        <img src="images/Olympus_Hermes.webp" alt="헤르메스" loading="lazy">
         <div class="card-body">
           <h2>헤르메스</h2>
         </div>
       </article>
 
       <article class="card" data-category="올림포스" data-lightbox-title="디오니소스" data-lightbox-text="">
-        <img src="images/Olympus_Dionysus.png" alt="디오니소스" loading="lazy">
+        <img src="images/Olympus_Dionysus.webp" alt="디오니소스" loading="lazy">
         <div class="card-body">
           <h2>디오니소스</h2>
         </div>
       </article>
 
       <article class="card" data-category="올림포스" data-lightbox-title="하데스" data-lightbox-text="">
-        <img src="images/Olympus_Hades.png" alt="하데스" loading="lazy">
+        <img src="images/Olympus_Hades.webp" alt="하데스" loading="lazy">
         <div class="card-body">
           <h2>하데스</h2>
         </div>
       </article>
 
       <article class="card" data-category="올림포스" data-lightbox-title="페르세포네" data-lightbox-text="">
-        <img src="images/Olympus_Persephone.png" alt="페르세포네" loading="lazy">
+        <img src="images/Olympus_Persephone.webp" alt="페르세포네" loading="lazy">
         <div class="card-body">
           <h2>페르세포네</h2>
         </div>
       </article>
 
       <article class="card" data-category="이집트" data-lightbox-title="아누비스" data-lightbox-text="">
-        <img src="images/Egypt_Anubis.png" alt="아누비스" loading="lazy">
+        <img src="images/Egypt_Anubis.webp" alt="아누비스" loading="lazy">
         <div class="card-body">
           <h2>아누비스</h2>
         </div>
       </article>
 
       <article class="card" data-category="이집트" data-lightbox-title="클레오파트라" data-lightbox-text="">
-        <img src="images/Egypt_Cleopatra.png" alt="클레오파트라" loading="lazy">
+        <img src="images/Egypt_Cleopatra.webp" alt="클레오파트라" loading="lazy">
         <div class="card-body">
           <h2>클레오파트라</h2>
         </div>
       </article>
 
       <article class="card" data-category="이집트" data-lightbox-title="이시스" data-lightbox-text="">
-        <img src="images/Egypt_Isis.png" alt="이시스" loading="lazy">
+        <img src="images/Egypt_Isis.webp" alt="이시스" loading="lazy">
         <div class="card-body">
           <h2>이시스</h2>
         </div>
